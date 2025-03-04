@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arya Cinema - Book Movie Tickets</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">MAWA<span>mo</span>VIE</div>
+        <input type="text" placeholder="Search for Movies, Events, Plays..." class="search-bar">
+        <button class="sign-in">Sign In</button>
+    </header>
+
+    <nav>
+        <a href="#">Movies</a>
+        <a href="#">Stream</a>
+        <a href="#">Events</a>
+        <a href="#">Plays</a>
+        <a href="#">Sports</a>
+        <a href="#">Activities</a>
+    </nav>
+
+
+    <main>
+        <section class="movie-selection">
+            <h2>Now Showing</h2>
+            <div class="movie-list">
+                <div class="movie-card" data-movie="movie1">
+                    <img src="movie1.jpeg" alt="Movie 1">
+                    <h3>SHANG-CHI</h3>
+                    <p>2h 28min | Action, Sci-Fi</p>
+                    <button onclick="window.location.href='seats.html'">Book Now</button>
+                </div>
+                <div class="movie-card" data-movie="movie2">
+                    <img src="movie2.jpg" alt="Movie 2">
+                    <h3>SHADOW BONE</h3>
+                    <p>2h 32min | Action, Drama</p>
+                    <button onclick="window.location.href='seats.html'">Book Now</button>
+                </div>
+                <div class="movie-card" data-movie="movie3">
+                    <img src="movie3.jpg" alt="Movie 3">
+                    <h3>JOKER</h3>
+                    <p>2h 49min | Sci-Fi, Drama</p>
+                    <button onclick="window.location.href='seats.html'">Book Now</button>
+                </div>
+                <div class="movie-card" data-movie="movie3">
+                    <img src="movie4.jpg" alt="Movie 3">
+                    <h3>WONDER</h3>
+                    <p>2h 49min | Sci-Fi, Drama</p>
+                    <button onclick="window.location.href='seats.html'">Book Now</button>
+
+                </div>
+                <div class="movie-card" data-movie="movie3">
+                    <img src="movie5.jpg" alt="Movie 3">
+                    <h3>LAGAAN</h3>
+                    <p>2h 49min | Sci-Fi, Drama</p>
+                    <button onclick="window.location.href='booking.html'">Book Now</button>
+
+                </div>
+            </div>
+        </section>
+ 
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

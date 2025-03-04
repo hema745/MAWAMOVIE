@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking</title>
+    <body background="background4.jpg"></body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background:white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .filter-options {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input {
+            padding: 8px;
+            width: 80%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .cinema {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .cinema h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .cinema p {
+            color: #555;
+        }
+
+        .showtimes {
+            margin-top: 10px;
+        }
+
+        .time {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #007bff;
+            color:white;
+            border-radius: 5px;
+        }
+
+        .time:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Movie Showtimes - Hindi 2D</h2>
+        <div class="filter-options">
+            <label>Filter Show Timings:</label>
+            <input type="text" id="filterInput" placeholder="Search for a time...">
+        </div>
+
+        <!-- Cinema 1 -->
+        <div class="cinema">
+            <h3>Fun Cinemas: K Star Mallr</h3>
+            <p>Non-cancellable</p>
+            <div class="showtimes">
+                <a href="booking.html?time=02:00PM">
+                    <button class="time">02:00 PM</button>
+                </a>
+                <a href="booking.html?time=03:00PM">
+                    <button class="time">03:00 PM</button>
+                </a> 
+                <a href="booking.html?time=08:30PM">
+                    <button class="time">08:30 PM</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Cinema 2 -->
+        <div class="cinema">
+            <h3> inoxe Mall</h3>
+            <p>Non-cancellable</p>
+            <div class="showtimes">
+                <a href="booking.html?time=02:00PM">
+                    <button class="time">02:00 PM</button>
+                </a>
+                <a href="booking.html?time=03:00PM">
+                    <button class="time">03:00 PM</button>
+                </a> 
+                <a href="booking.html?time=08:30PM">
+                    <button class="time">08:30 PM</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Cinema 3 -->
+        <div class="cinema">
+            <h3> Kat Mall, Chembur</h3>
+            <p>Non-cancellable</p>
+            <div class="showtimes">
+                <a href="booking.html?time=02:00PM">
+                    <button class="time">02:00 PM</button>
+                </a>
+                <a href="booking.html?time=03:00PM">
+                    <button class="time">03:00 PM</button>
+                </a> 
+                <a href="booking.html?time=08:30PM">
+                    <button class="time">08:30 PM</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Cinema 4 -->
+        <div class="cinema">
+            <h3>Fun Cinemas:  Star Mall, Chembur</h3>
+            <p>Non-cancellable</p>
+            <div class="showtimes">
+                <a href="booking.html?time=02:00PM">
+                    <button class="time">02:00 PM</button>
+                </a>
+                <a href="booking.html?time=03:00PM">
+                    <button class="time">03:00 PM</button>
+                </a> 
+                <a href="booking.html?time=08:30PM">
+                    <button class="time">08:30 PM</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('filterInput').addEventListener('keyup', function() {
+            let filterValue = this.value.toLowerCase();
+            let cinemas = document.querySelectorAll('.cinema');
+
+            cinemas.forEach(cinema => {
+                let showtimes = cinema.querySelectorAll('.time');
+                let match = false;
+
+                showtimes.forEach(time => {
+                    if (time.textContent.toLowerCase().includes(filterValue)) {
+                        match = true;
+                    }
+                });
+
+                cinema.style.display = match ? 'block' : 'none';
+            });
+        });
+    </script>
+
+</body>
+</html>

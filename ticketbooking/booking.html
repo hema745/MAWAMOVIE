@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .booking-section {
+            margin: 20px auto;
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .seat-container {
+            display: grid;
+            grid-template-columns: repeat(8, 30px);
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .seat {
+            width: 30px;
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .seat.selected {
+            background-color: green;
+        }
+        .seat.occupied {
+            background-color: red;
+            cursor: not-allowed;
+        }
+        .screen {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            margin: 10px auto;
+            width: 80%;
+        }
+        .confirm-btn {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <section id="booking-section" class="booking-section">
+        <h2>Book Tickets</h2>
+        <div class="booking-container">
+            <div class="movie-info">
+                <h3 id="selected-movie">Selected Movie</h3>
+                <p>Price per ticket: $<span id="ticket-price">12</span></p>
+            </div>
+            
+            <div class="seat-selection">
+                <div class="screen">Screen</div>
+                <div class="seat-container" id="seat-container"></div>
+            </div>
+
+            <div class="booking-summary">
+                <p>Selected Seats: <span id="selected-seats">0</span></p>
+                <p>Total Price: $<span id="total-price">0</span></p>
+                <button onclick="confirmBooking()" class="confirm-btn">Confirm Booking</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const seatContainer = document.getElementById("seat-container");
+        const ticketPrice = parseInt(document.getElementById("ticket-price").innerText);
+        const selectedSeatsDisplay = document.getElementById("selected-seats");
+        const totalPriceDisplay = document.getElementById("total-price");
+        
+        const totalSeats = 40;
+        let selectedSeats = 0;
+        let totalPrice = 0;
+    
+        function generateSeats() {
+            for (let i = 0; i < totalSeats; i++) {
+                const seat = document.createElement("div");
+                seat.classList.add("seat");
+                seat.dataset.index = i;
+                seat.addEventListener("click", toggleSeatSelection);
+                seatContainer.appendChild(seat);
+            }
+        }
+    
+        function toggleSeatSelection(event) {
+            const seat = event.target;
+            if (!seat.classList.contains("occupied")) {
+                seat.classList.toggle("selected");
+                updateBookingSummary();
+            }
+        }
+    
+        function updateBookingSummary() {
+            selectedSeats = document.querySelectorAll(".seat.selected").length;
+            totalPrice = selectedSeats * ticketPrice;
+            selectedSeatsDisplay.innerText = selectedSeats;
+            totalPriceDisplay.innerText = totalPrice;
+        }
+    
+        function confirmBooking() {
+            if (selectedSeats > 0) {
+                alert(`Booking Confirmed! You selected ${selectedSeats} seats. Total Price: $${totalPrice}`);
+            } else {
+                alert("Please select at least one seat.");
+            }
+        }
+    
+        generateSeats();
+    </script>
+    
+</body>
+</html>
