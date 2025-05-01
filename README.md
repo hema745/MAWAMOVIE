@@ -1,6 +1,6 @@
-# 🎬 CINE-TIX - Movie Ticket Booking Website (Frontend Project)
+# 🎬 MAWAMOVIE - Movie Ticket Booking Website (Frontend Project)
 
-Welcome to **CINE-TIX**, a simple and stylish movie ticket booking website made with **HTML, CSS, and JavaScript**.  
+Welcome to **MAWA_MOVIE**, a simple and stylish movie ticket booking website made with **HTML, CSS, and JavaScript**.  
 It provides a clean and interactive interface for users to browse movies and book seats.
 
 ---
